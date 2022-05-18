@@ -1,82 +1,79 @@
+<!-- Interpolation -->
+<p>El número de teléfono es: {{ telefono }}</p>
 
-<p appHighlight>{{'Esto es una locura'}}</p>
+<!-- Pipes y Directivas Propias -->
+<p appHighlight>{{ "Esto es una locura" }}</p>
 <p>
-
-  {{'In this example, we have an array that holds' | vowelsToNumbers }}</p>
+  {{ "In this example, we have an array that holds" | vowelsToNumbers }}
+</p>
 
 <input placeholder="ingrese su telefono" type="number" [(ngModel)]="telefono" />
-<p>El número de teléfono es: {{telefono}}</p>
 
-<P>
-  Today: {{today | date: 'short'}}
-</P>
+<P> Today: {{ today | date: "short" }} </P>
 
-<p>Otra fecha : {{date | date: 'yyyy.dd.MM'}}</p>
-<P>
-  Otra fecha : {{date | timeAgo}}
-</P>
-<p>{{'HoLA CoMo EstAS' | reverse}}</p>
+<p>Otra fecha : {{ date | date: "yyyy.dd.MM" }}</p>
+<P> Otra fecha : {{ date | timeAgo }} </P>
+<p>{{ "HoLA CoMo EstAS" | reverse }}</p>
 
+<!-- Forms Angular -->
 
-
-<div class="wrapper" >
-  <label for="email">Email:  </label>
+<div class="wrapper">
+  <label for="email">Email: </label>
   <input
     type="email"
     name="email"
     required
     id="email"
-    placeholder ="ayelen@gmail.com"
+    placeholder="ayelen@gmail.com"
     [(ngModel)]="register.email"
   />
- <div class="validation">requerido</div>
+  <div class="validation">requerido</div>
 </div>
 
 <h1>Formulario con css</h1>
-<div class="container" >
-<form (ngSubmit)="onRegister()" #myForm="ngForm">
-  <div class="input group">
-    <label for="name">Nombre: </label>
-    <input
-      type="text"
-      name="name"
-      required
-      id="name"
-      placeholder="Ayelén Iasich"
-      [(ngModel)]="register.name"
-    />
-    <p>Mensajes de error</p>
-  </div>
-  <div class="input group" >
-    <label for="email">Email:  </label>
-    <input
-      type="email"
-      name="email"
-      required
-      id="email"
-      placeholder ="ayelen@gmail.com"
-      [(ngModel)]="register.email"
-    />
-   <div class="validation">Campo requerido</div>
-  </div>
+<div class="container">
+  <form (ngSubmit)="onRegister()" #myForm="ngForm">
+    <div class="input group">
+      <label for="name">Nombre: </label>
+      <input
+        type="text"
+        name="name"
+        required
+        id="name"
+        placeholder="Ayelén Iasich"
+        [(ngModel)]="register.name"
+      />
+      <p>Mensajes de error</p>
+    </div>
+    <div class="input group">
+      <label for="email">Email: </label>
+      <input
+        type="email"
+        name="email"
+        required
+        id="email"
+        placeholder="ayelen@gmail.com"
+        [(ngModel)]="register.email"
+      />
+      <div class="validation">Campo requerido</div>
+    </div>
 
-  <div class="input group">
-    <label for="password">Password: </label>
-    <input
-      type="password"
-      name="password"
-      required
-      id="password"
-      [(ngModel)]="register.password"
-    />
-    <p>Mensajes de error</p>
-  </div>
+    <div class="input group">
+      <label for="password">Password: </label>
+      <input
+        type="password"
+        name="password"
+        required
+        id="password"
+        [(ngModel)]="register.password"
+      />
+      <p>Mensajes de error</p>
+    </div>
 
-  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
-  <!-- Desabilitamos el boton si alguno de los campo es invalido, si son validos el boton funciona -->
-</form>
+    <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+    <!-- Desabilitamos el boton si alguno de los campo es invalido, si son validos el boton funciona -->
+  </form>
 </div>
-
 
 <hr />
 <h1>NgClass & NgStyle</h1>
@@ -97,22 +94,34 @@
   ></div>
 </div>
 
-
-
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toogle Button</button>
 
 <button (click)="increaseAge()">Age ++</button>
+<button (click)="decreaseAge()">Age --</button>
 <p>Edad {{ person.age }}</p>
 
-
+<div class="box" (scroll)="onScroll()">
+  <p>
+    Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+    roots in a piece of classical Latin literature from 45 BC, making it over
+    2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+    College in Virginia, looked up one of the more obscure Latin words,
+    consectetur, from a Lorem Ipsum passage, and going through the cites of the
+    word in classical literature, discovered the undoubtable source. Lorem Ipsum
+    comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"
+    (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a
+    treatise on the theory of ethics, very popular during the Renaissance. The
+    first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
+    in section 1.10.32.
+  </p>
+</div>
 
 <hr />
 <h1>Propiedades</h1>
 
 <button [disabled]="btnDisabled">Enviar</button>
-
 
 <input type="text" [value]="person.name" />
 <progress max="100" [value]="person.age"></progress>

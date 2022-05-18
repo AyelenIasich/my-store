@@ -34,6 +34,13 @@ export class AppComponent {
   }
 
 
+  //metodo boton para disminuir la Edad
+
+  decreaseAge() {
+    this.person.age -= 1;
+  }
+
+
   box = {
     width: 100,
     height: 100,
